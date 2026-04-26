@@ -3,6 +3,7 @@ import { dbManager } from './database/dbManager';
 import { rateLimitMiddleware } from './middlewares/rateLimitMiddleware';
 import './interfaces/request'; // Importante para carregar a extensão de tipos
 import { GatewayController } from './controllers/gatewayController';
+import { CleanupService } from './services/cleanupService';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,8 +11,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(rateLimitMiddleware);
 
-// Initialize Database
+// Initialize Database and Background Services
 dbManager.initialize().then(() => {
+  // Start Background Cleanup Worker
+  CleanupService.startCleanupWorker();
+
   // Health Check
   app.get('/', (req: Request, res: Response) => {
     res.json({ 
