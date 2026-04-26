@@ -38,12 +38,12 @@ O limitador utiliza o algoritmo de **Janela Fixa (Fixed Window)** com as seguint
 
 3.  **Execução do teste de carga (Opcional - Requer k6)**:
     ```bash
-    k6 run src/load-test.js
+    k6 run tests/load-test.js
     ```
 
 4.  **Execução do teste de cache/funcional**:
     ```bash
-    node scratch/test-cache.js
+    node tests/test-cache.js
     ```
 
 O servidor estará disponível em `http://localhost:3000`.

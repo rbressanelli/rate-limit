@@ -2,8 +2,8 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export let options = {
-  vus: 200,         // 100 usuários virtuais
-  duration: '40s',  // durante 30 segundos
+  vus: 100,         // 100 usuários virtuais
+  duration: '30s',  // durante 30 segundos
 };
 
 export default function () {
