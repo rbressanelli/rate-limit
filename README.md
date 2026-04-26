@@ -26,8 +26,6 @@ O limitador utiliza o algoritmo de **Janela Fixa (Fixed Window)** com as seguint
 
 ## 🛠️ Instruções para Rodar o Projeto
 
-Como trata-se de uma API Gateway, construida de modo a proteger uma outra API, para testar a aplicação de localmente de forma que ela repasse requisições para outra aplicação, é necessário ter duas APIs rodando, uma sendo a API Gateway e a outra sendo a API protegida. Você pode ter outra APi rodando na porta 3001 por exemplo, e adicionar a rota desta API no arquivo server.ts, para que esta API consiga reconhecer a sua API local.
-
 1.  **Instalação de dependências**:
     ```bash
     npm install
