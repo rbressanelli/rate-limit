@@ -3,13 +3,13 @@ import { Request, Response } from 'express';
 export class GatewayController {
   public static async proxyToUsers(req: Request, res: Response) {
     // Definimos onde está a API real de usuários
-    const USERS_API_URL = 'http://localhost:3001/api/v1/users';
+    const USERS_API_URL = process.env.API_URL;
 
     try {
       console.log(`[Gateway] Repassando requisição para: ${USERS_API_URL}`);
 
       // Fazemos a chamada para a API interna
-      const response = await fetch(USERS_API_URL, {
+      const response = await fetch(USERS_API_URL as string, {
         method: req.method,
         headers: {
           'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import { CleanupService } from './services/cleanupService';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const URL_GATEWAY = process.env.GATEWAY_URL;
 
 app.use(express.json());
 app.use(rateLimitMiddleware);
@@ -26,7 +27,7 @@ dbManager.initialize().then(() => {
 
   // Protected Gateway Route
   // app.get('/api/v1/endpoint-protegido', GatewayController.handleProtectedRequest);
-  app.all('/api/v1/users', GatewayController.proxyToUsers);
+  app.all(URL_GATEWAY as string, GatewayController.proxyToUsers);
 
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
