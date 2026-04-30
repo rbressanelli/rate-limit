@@ -1,36 +1,5 @@
 import { Request, Response } from 'express';
 
-/**
- * Controller to simulate an API Gateway routing to a downstream service.
- */
-// export class GatewayController {
-//   /**
-//    * Handles requests to protected endpoints.
-//    * Simulates processing and communication with a backend service.
-//    */
-//   public static async handleProtectedRequest(req: Request, res: Response) {
-//     const context = req.context || { ip: 'unknown' };
-
-//     // Simulate internal "routing" logic
-//     console.log(`[Gateway] Routing request from ${context.ip}${context.apiKey ? ` (API Key: ${context.apiKey})` : ''} to Downstream Service...`);
-
-//     // Simulate backend response
-//     return res.status(200).json({
-//       status: 'success',
-//       data: {
-//         message: 'Welcome to the protected resource!',
-//         timestamp: new Date().toISOString(),
-//         service: 'Core-Backend-v1',
-//         authenticated_as: {
-//           id: context.apiKey || 'anonymous',
-//           method: context.apiKey ? 'API_KEY' : 'IP_ADDRESS'
-//         }
-//       }
-//     });
-//   }
-// }
-
-// src/controllers/gatewayController.ts
 export class GatewayController {
   public static async proxyToUsers(req: Request, res: Response) {
     // Definimos onde está a API real de usuários
